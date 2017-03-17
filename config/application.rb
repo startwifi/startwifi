@@ -26,5 +26,9 @@ module Startwifi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.generators do |generate|
+      generate.fixture_replacement :factory_girl, dir: 'spec/factories'
+      generate.test_framework :rspec
+    end
   end
 end
