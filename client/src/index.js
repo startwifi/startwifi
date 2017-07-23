@@ -7,7 +7,7 @@ import configureStore from './store'
 import routes from './routes'
 import './index.css'
 
-const store = configureStore()
+export const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
