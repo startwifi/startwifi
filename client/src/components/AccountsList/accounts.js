@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindAll } from 'lodash'
-import { connect } from 'react-redux'
-import { fetchAccounts, fetchAccountsSuccess, fetchAccountsFailure } from './actions'
 import AccountItem from './account-item'
+import Loader from '../../common/Ui/Loader'
 
 class AccountsList extends Component {
   static path = '/accounts'
@@ -27,47 +26,36 @@ class AccountsList extends Component {
   }
 
   render () {
-    const { accounts, loading, error } = this.props.accountsList;
+    const { accounts, loading } = this.props.accountsList
 
     return (
       <div className='row'>
-        <div className='col-xs-12'>
-          <h2>Accounts</h2>
-
-          <table className='table table-bordered table-hover'>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              { accounts.map(this.renderAccounts) }
-            </tbody>
-          </table>
+        <div className="wrapper wrapper-content animated fadeInUp">
+          <div className='col-md-8 col-md-offset-2'>
+            <div className='ibox float-e-margins'>
+              <div className="ibox-title">
+                <h5>Accounts</h5>
+                <div className="ibox-tools">
+                  <a href="" className="btn btn-primary btn-xs">Create new account</a>
+                </div>
+              </div>
+              <div className="ibox-content">
+                <div className='project-list'>
+                  { loading ? <Loader /> :
+                    (<table className="table table-hover">
+                      <tbody>
+                        { accounts.map(this.renderAccounts) }
+                      </tbody>
+                    </table>)
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    accountsList: state.accounts.accountsList
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchAccounts: () => {
-      dispatch(fetchAccounts()).then((response) => {
-        !response.error ? dispatch(fetchAccountsSuccess(response.payload.data)) : dispatch(fetchAccountsFailure(response.payload.data))
-      })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AccountsList)
+export default AccountsList

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router'
 import AccountsList from './accounts'
-import AccountDetails from './account-details'
+import AccountsListContainer from './accounts-container'
+import AccountDetailsContainer from './account-details-container'
 
 export default (
   <Route>
-    <Route component={AccountsList} path={AccountsList.path} />
-    <Route component={AccountDetails} path={AccountsList.path + '/:id'} />
+    <Route component={AccountsListContainer} path={AccountsList.path} />
+    <Route component={AccountDetailsContainer} path={AccountsList.path + '/:id'} />
   </Route>
 )
