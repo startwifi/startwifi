@@ -1,5 +1,7 @@
 export { default as AccountsList } from './accounts'
+export { default as AccountsListContainer } from './accounts-container'
 export { default as AccountsRoutes } from './routes'
 export { default as AccountsListReducer } from './reducers'
 export { default as AccountItem } from './account-item'
 export { default as AccountDetails } from './account-details'
+export { default as AccountDetailsContainer } from './account-details-container'

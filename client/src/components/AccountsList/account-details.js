@@ -1,48 +1,76 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
-import { connect } from 'react-redux';
-import { fetchAccount, fetchAccountSuccess, fetchAccountFailure } from './actions'
+import classnames from 'classnames'
+import Loader from '../../common/Ui/Loader'
 
 class AccountDetails extends Component {
   static propTypes = {
     routeParams: PropTypes.any.isRequired
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchAccount(this.props.routeParams.id)
   }
 
   render () {
-    const { id, name, active, created_at } = this.props.activeAccount
+    const { account, loading, error } = this.props.activeAccount
+
+    if (loading) {
+      return <Loader />
+    } else if(error) {
+      return  <div className="alert alert-danger">{error.message}</div>
+    } else if(!account) {
+      return <span />
+    }
+
+    const statusClasses = classnames('label', {
+      'label-primary': account && account.active,
+      'label-default': account && !account.active
+    })
 
     return (
-      <div>
-        <h3>Account {name} Details</h3>
+      <div className='row'>
+        <div className='col-lg-9'>
+          <div className='wrapper wrapper-content animated fadeInUp'>
+            <div className='ibox'>
+              <div className='ibox-content'>
+
+                <div className='row'>
+                  <div className='col-lg-12'>
+                    <div className='m-b-md'>
+                      <a href='#' className='btn btn-white btn-xs pull-right'>Edit project</a>
+                      <h2>Contract with {account.name}</h2>
+                    </div>
+                    <dl className='dl-horizontal'>
+                      <dt>Status:</dt> <dd><span className={statusClasses}>{account.active === true ? 'Active' : 'Inactive' }</span></dd>
+                    </dl>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div className='col-lg-3'>
+          <div className='wrapper wrapper-content project-manager'>
+            <h4>Account description</h4>
+            <img src='img/zender_logo.png' className='img-responsive' />
+            <p className='small'>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look
+              even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+            </p>
+            <p className='small font-bold'>
+              <span><i className='fa fa-circle text-warning'></i> High priority</span>
+            </p>
+          </div>
+        </div>
+
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    activeAccount: state.accounts.activeAccount
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchAccount: (id) => {
-      dispatch(fetchAccount(id))
-        .then((result) => {
-          if (result.payload.response && result.payload.response.status !== 200) {
-            dispatch(fetchAccountFailure(result.payload.response.data))
-          } else {
-            dispatch(fetchAccountSuccess(result.payload.data))
-          }
-        })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AccountDetails)
+export default AccountDetails
