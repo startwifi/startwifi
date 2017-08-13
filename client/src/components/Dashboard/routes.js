@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router'
-import Dashboard from './dashboard'
+import DashboardPage from './DashboardPage'
 
 export default (
   <Route>
-    <Route component={Dashboard} path={Dashboard.path} />
+    <Route path='/' component={DashboardPage} />
   </Route>
 )

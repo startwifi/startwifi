@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { fetchAccounts, fetchAccountsSuccess, fetchAccountsFailure } from './actions'
-import AccountsList from './accounts'
+import { fetchAccounts, fetchAccountsSuccess, fetchAccountsFailure } from '../actions'
+import AccountsList from './AccountsList'
 
 const mapStateToProps = (state) => {
   return {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import { AboutRoutes } from './components/About'
-import { AccountsRoutes } from './components/AccountsList'
+import { AccountsRoutes } from './components/Accounts'
 import { Dashboard, DashboardRoutes } from './components/Dashboard'
 import App from './containers/App'
 import NotFound from './components/NotFound'

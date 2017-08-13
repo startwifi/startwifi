@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 const propTypes = {
+  label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   divClasses: PropTypes.string,
@@ -31,17 +32,20 @@ class Input extends Component {
       'has-error': this.props.error ? true : false
     })
 
-    const { value } = this.props
+    const { label, value } = this.props
 
     return (
       <div className={divClasses}>
-        <input
-          type='text'
-          value={value}
-          className='form-control'
-          onChange={this.handleChange}
-        />
-        { this.props.error ? <span className='help-block'>{this.props.error}</span> : null }
+        <label className='col-md-2 control-label'>{label}</label>
+        <div className='col-md-10'>
+          <input
+            type='text'
+            value={value}
+            className='form-control'
+            onChange={this.handleChange}
+          />
+          { this.props.error ? <span className='help-block'>{this.props.error}</span> : null }
+        </div>
       </div>
     )
   }

@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { DevTools } from '../../utilities'
 import Header from '../../common/Header'
-import './style.css'
 
 class App extends Component {
-  static path = '/'
+  static propTypes = {
+    children: PropTypes.any.isRequired
+  }
 
   render () {
     return (
@@ -20,10 +21,6 @@ class App extends Component {
       </div>
     )
   }
-}
-
-App.propTypes = {
-  children: PropTypes.any.isRequired
 }
 
 export default App

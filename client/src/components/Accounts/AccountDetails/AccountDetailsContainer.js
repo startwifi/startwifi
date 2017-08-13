@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { fetchAccount, fetchAccountSuccess, fetchAccountFailure } from './actions'
-import AccountDetails from './account-details'
+import { connect } from 'react-redux'
+import { fetchAccount, fetchAccountSuccess, fetchAccountFailure } from '../actions'
+import AccountDetails from './AccountDetails'
 
 const mapStateToProps = (globalState, ownProps) => {
   return {

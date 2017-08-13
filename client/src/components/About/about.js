@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './style.css'
 
 class About extends Component {
   render () {
@@ -13,7 +12,5 @@ class About extends Component {
     )
   }
 }
-
-About.path = '/about'
 
 export default About
