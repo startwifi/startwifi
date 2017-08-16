@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import AccountForm from './AccountForm'
+import { resetNewAccount } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -8,7 +9,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    resetMe: () => {
+      dispatch(resetNewAccount())
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountForm)
