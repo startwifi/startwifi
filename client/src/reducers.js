@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import { AccountsListReducer } from './components/AccountsList'
+import { reducer as formReducer } from 'redux-form'
+import { AccountsReducer } from './components/Accounts'
 
 export default combineReducers({
   routing: routerReducer,
-  accounts: AccountsListReducer
+  form: formReducer,
+  accounts: AccountsReducer
 })

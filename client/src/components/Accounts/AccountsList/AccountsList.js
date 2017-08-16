@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindAll } from 'lodash'
-import AccountItem from './account-item'
-import Loader from '../../common/Ui/Loader'
+import { Link } from 'react-router'
+import AccountItem from './AccountItem'
+import Loader from '../../../common/Ui/Loader'
 
 class AccountsList extends Component {
   static path = '/accounts'
@@ -30,19 +31,19 @@ class AccountsList extends Component {
 
     return (
       <div className='row'>
-        <div className="wrapper wrapper-content animated fadeInUp">
+        <div className='wrapper wrapper-content animated fadeInUp'>
           <div className='col-md-8 col-md-offset-2'>
             <div className='ibox float-e-margins'>
-              <div className="ibox-title">
+              <div className='ibox-title'>
                 <h5>Accounts</h5>
-                <div className="ibox-tools">
-                  <a href="" className="btn btn-primary btn-xs">Create new account</a>
+                <div className='ibox-tools'>
+                  <Link to='/accounts/new' className='btn btn-primary btn-xs'>Create new account</Link>
                 </div>
               </div>
-              <div className="ibox-content">
+              <div className='ibox-content'>
                 <div className='project-list'>
                   { loading ? <Loader /> :
-                    (<table className="table table-hover">
+                    (<table className='table table-hover'>
                       <tbody>
                         { accounts.map(this.renderAccounts) }
                       </tbody>

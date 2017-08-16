@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import classnames from 'classnames'
-import Loader from '../../common/Ui/Loader'
+import Loader from '../../../common/Ui/Loader'
 
 class AccountDetails extends Component {
   static propTypes = {
-    routeParams: PropTypes.any.isRequired
+    id: PropTypes.any.isRequired
   }
 
   componentDidMount() {
-    this.props.fetchAccount(this.props.routeParams.id)
+    this.props.fetchAccount(this.props.id)
   }
 
   render () {
@@ -19,7 +19,7 @@ class AccountDetails extends Component {
     if (loading) {
       return <Loader />
     } else if(error) {
-      return  <div className="alert alert-danger">{error.message}</div>
+      return <div className="alert alert-danger">{error.message}</div>
     } else if(!account) {
       return <span />
     }

@@ -1,2 +1,2 @@
-export { default as About } from './about'
+export { default as AboutPage } from './AboutPage'
 export { default as AboutRoutes } from './routes'

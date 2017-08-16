@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './style.css'
 
 class Dashboard extends Component {
   render () {
@@ -11,7 +10,5 @@ class Dashboard extends Component {
     )
   }
 }
-
-Dashboard.path = '/dashboard'
 
 export default Dashboard
