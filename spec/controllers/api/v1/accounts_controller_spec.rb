@@ -20,7 +20,7 @@ describe Api::V1::AccountsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:params) { attributes_for(:account) }
+    let(:params) { attributes_for(:account, owner_attributes: attributes_for(:user)) }
 
     it 'should be success' do
       post :create, params: params

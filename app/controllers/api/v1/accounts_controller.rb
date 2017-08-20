@@ -1,4 +1,6 @@
 class Api::V1::AccountsController < ApiController
+  before_action :authenticate_user
+
   def index
     @accounts = Account.all
     render json: @accounts
@@ -21,6 +23,10 @@ class Api::V1::AccountsController < ApiController
   private
 
   def account_params
-    params.permit(:name, :subdomain)
+    params.permit(
+      :name,
+      :subdomain,
+      owner_attributes: %i[name email password]
+    )
   end
 end
