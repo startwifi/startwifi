@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :account do
-    # owner nil
+    association :owner, factory: :user
     active true
     name { Faker::Company.name }
     subdomain { Faker::Internet.domain_word }

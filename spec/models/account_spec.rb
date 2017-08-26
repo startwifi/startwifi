@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe Account, type: :model do
   context 'associations' do
-    xit { is_expected.to belong_to(:owner).class_name('User') }
+    it { is_expected.to belong_to(:owner).class_name('User') }
   end
 
   context 'validations' do
-    xit { is_expected.to validate_presence_of(:owner) }
+    it { is_expected.to validate_presence_of(:owner) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:subdomain) }
     it { is_expected.to validate_uniqueness_of(:subdomain).case_insensitive }
