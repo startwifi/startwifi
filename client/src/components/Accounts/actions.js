@@ -15,11 +15,13 @@ export const RESET_NEW_ACCOUNT = 'RESET_NEW_ACCOUNT'
 
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
 
-export function fetchAccounts () {
+export function fetchAccounts (token) {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}/accounts`,
-    headers: []
+    headers: {
+      'Authorization': `JWT ${token}`
+    }
   })
 
   return {

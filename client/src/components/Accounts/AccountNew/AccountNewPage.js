@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import AccountFormContainer from '../AccountForm/AccountFormContainer'
+import HeaderContainer from '../../../common/Header/HeaderContainer'
 
 class AccountNewPage extends Component {
-  static propTypes = {}
 
   render () {
-    return <AccountFormContainer />
+    return (
+      <div id='page-wrapper' className='gray-bg'>
+        <HeaderContainer />
+        <div className='containter'>
+          <div className='row'>
+            <div className='wrapper wrapper-content animated fadeInUp'>
+              <AccountFormContainer />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 

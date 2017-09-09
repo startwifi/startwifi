@@ -2,16 +2,18 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import { AboutRoutes } from './components/About'
 import { AccountsRoutes } from './components/Accounts'
-import { Dashboard, DashboardRoutes } from './components/Dashboard'
-import App from './containers/App'
+import { DashboardPage, DashboardRoutes } from './components/Dashboard'
+import { UsersRoutes } from './components/Users'
+import AppPage from './containers/App/AppPage'
 import NotFound from './components/NotFound'
 
 export default (
-  <Route component={App} path={App.path}>
-    <IndexRoute component={Dashboard} />
+  <Route path='/' component={AppPage}>
+    <IndexRoute component={DashboardPage} />
     { AboutRoutes }
     { AccountsRoutes }
     { DashboardRoutes }
-    <Route component={NotFound} path='*' />
+    { UsersRoutes }
+    <Route path='*' component={NotFound} />
   </Route>
 )

@@ -6,8 +6,6 @@ import AccountItem from './AccountItem'
 import Loader from '../../../common/Ui/Loader'
 
 class AccountsList extends Component {
-  static path = '/accounts'
-
   static propTypes = {
     accountsList: PropTypes.object.isRequired
   }
