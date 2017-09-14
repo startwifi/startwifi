@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
 import classnames from 'classnames'
 import Loader from '../../../common/Ui/Loader'
 
@@ -57,7 +56,7 @@ class AccountDetails extends Component {
         <div className='col-lg-3'>
           <div className='wrapper wrapper-content project-manager'>
             <h4>Account description</h4>
-            <img src='img/zender_logo.png' className='img-responsive' />
+            <img src='' alt='account logo' className='img-responsive' />
             <p className='small'>
               There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look
               even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing

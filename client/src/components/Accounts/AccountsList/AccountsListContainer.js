@@ -9,9 +9,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  const token = localStorage.getItem('jwtToken')
+
   return {
     fetchAccounts: () => {
-      dispatch(fetchAccounts()).then((response) => {
+      dispatch(fetchAccounts(token)).then((response) => {
         !response.error ? dispatch(fetchAccountsSuccess(response.payload.data)) : dispatch(fetchAccountsFailure(response.payload.data))
       })
     }
