@@ -1,15 +1,15 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-import { AboutRoutes } from './components/About'
-import { AccountsRoutes } from './components/Accounts'
-import { DashboardPage, DashboardRoutes } from './components/Dashboard'
-import { UsersRoutes } from './components/Users'
-import AppPage from './containers/App/AppPage'
-import NotFound from './components/NotFound'
+import { AboutRoutes } from './features/About'
+import { AccountsRoutes } from './features/Accounts'
+import { Dashboard, DashboardRoutes } from './features/Dashboard'
+import { UsersRoutes } from './features/Users'
+import AppPage from './features/App/AppPage'
+import NotFound from './features/NotFound'
 
 export default (
   <Route path='/' component={AppPage}>
-    <IndexRoute component={DashboardPage} />
+    <IndexRoute component={Dashboard} />
     { AboutRoutes }
     { AccountsRoutes }
     { DashboardRoutes }

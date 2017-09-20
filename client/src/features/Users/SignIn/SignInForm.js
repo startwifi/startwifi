@@ -20,7 +20,6 @@ function validate(values) {
 }
 
 const validateAndSignInUser = (values, dispatch) => {
-  console.log(values)
   return dispatch(signInUser(values))
     .then((result) => {
       if (result.payload.response && result.payload.response.status !== 200) {

@@ -20,8 +20,6 @@ const initialState = {
 export default function (state = initialState, action) {
   let error
 
-  console.log(action.type)
-
   switch (action.type) {
     case FETCH_ACCOUNTS:
       return { ...state, accountsList: { accounts: [], error: null, loading: true } }

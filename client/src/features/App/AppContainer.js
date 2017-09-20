@@ -1,17 +1,16 @@
 import { connect } from 'react-redux'
-import { meFromToken, meFromTokenSuccess, meFromTokenFailure, resetToken } from '../../components/Users/actions'
+import { meFromToken, meFromTokenSuccess, meFromTokenFailure, resetToken } from '../../features/Users/actions'
 import App from './App'
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadUserFromToken: () => {
       let token = localStorage.getItem('jwtToken')
-      if(!token || token === '') {
+      if (!token || token === '') {
         return
       }
       dispatch(meFromToken(token))
         .then((response) => {
-          console.log(response)
           if (!response.error) {
             localStorage.setItem('jwtToken', response.payload.data.jwt)
             dispatch(meFromTokenSuccess(response.payload))

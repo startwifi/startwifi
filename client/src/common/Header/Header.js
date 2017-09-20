@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 
 class Header extends Component {
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps)
     if (this.props.user.user && !nextProps.user.user) {
       this.context.router.push('/')
     }
