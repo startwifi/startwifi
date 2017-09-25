@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import AccountFormContainer from '../AccountForm/AccountFormContainer'
-import HeaderContainer from '../../../common/Header/HeaderContainer'
+import SignInFormContainer from './SignInFormContainer'
 
-class AccountNewPage extends Component {
-
+class SignInPage extends Component {
   render () {
     return (
       <div id='page-wrapper' className='gray-bg'>
-        <HeaderContainer />
         <div className='containter'>
           <div className='row'>
             <div className='wrapper wrapper-content animated fadeInUp'>
-              <AccountFormContainer />
+              <SignInFormContainer />
             </div>
           </div>
         </div>
@@ -20,4 +17,4 @@ class AccountNewPage extends Component {
   }
 }
 
-export default AccountNewPage
+export default SignInPage

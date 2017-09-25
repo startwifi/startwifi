@@ -13,7 +13,7 @@ export const RESET_USER = 'RESET_USER'
 const TOKEN_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000' : ''
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
 
-export function meFromToken(tokenFromStorage) {
+export function meFromToken (tokenFromStorage) {
   const request = axios({
     method: 'post',
     url: `${ROOT_URL}/users/me`,
@@ -28,21 +28,21 @@ export function meFromToken(tokenFromStorage) {
   }
 }
 
-export function meFromTokenSuccess(currentUser) {
+export function meFromTokenSuccess (currentUser) {
   return {
     type: ME_FROM_TOKEN_SUCCESS,
     payload: currentUser
   }
 }
 
-export function meFromTokenFailure(error) {
+export function meFromTokenFailure (error) {
   return {
     type: ME_FROM_TOKEN_FAILURE,
     payload: error
   }
 }
 
-export function resetToken() {
+export function resetToken () {
   return {
     type: RESET_TOKEN
   }
@@ -57,14 +57,14 @@ export function signInUser (formValues) {
   }
 }
 
-export function signInUserSuccess(user) {
+export function signInUserSuccess (user) {
   return {
     type: SIGNIN_USER_SUCCESS,
     payload: user
   }
 }
 
-export function signInUserFailure(error) {
+export function signInUserFailure (error) {
   return {
     type: SIGNIN_USER_FAILURE,
     payload: error

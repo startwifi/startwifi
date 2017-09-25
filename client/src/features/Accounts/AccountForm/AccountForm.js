@@ -45,7 +45,6 @@ class AccountForm extends Component {
   }
 
   renderError (newAccount) {
-    console.log(newAccount)
     if (newAccount && newAccount.error && newAccount.error.message) {
       return (
         <div className='alert alert-danger'>

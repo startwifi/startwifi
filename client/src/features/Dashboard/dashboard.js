@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import HeaderContainer from '../../common/Header/HeaderContainer'
-import Dashboard from './Dashboard'
 
-class DashboardPage extends Component {
+class Dashboard extends Component {
   render () {
     return (
       <div id='page-wrapper' className='gray-bg'>
@@ -11,7 +10,7 @@ class DashboardPage extends Component {
           <div className='row'>
             <div className='col-lg-9'>
               <div className='wrapper wrapper-content animated fadeInUp'>
-                <Dashboard />
+                <h2>Dashboard</h2>
               </div>
             </div>
           </div>
@@ -21,4 +20,4 @@ class DashboardPage extends Component {
   }
 }
 
-export default DashboardPage
+export default Dashboard

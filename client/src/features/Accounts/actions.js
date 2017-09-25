@@ -44,8 +44,14 @@ export function fetchAccountsFailure (error) {
   }
 }
 
-export function fetchAccount (id) {
-  const request = axios.get(`${ROOT_URL}/accounts/${id}`)
+export function fetchAccount (id, token) {
+  const request = axios({
+    method: 'get',
+    url: `${ROOT_URL}/accounts/${id}`,
+    headers: {
+      'Authorization': `JWT ${token}`
+    }
+  })
 
   return {
     type: FETCH_ACCOUNT,
