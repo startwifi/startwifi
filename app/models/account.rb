@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   SUBDOMAIN_FORMAT = /\A[\w\-]+\Z/i
   RESTRICTED_SUBDOMAINS = %w(www cp oauth auth).freeze
 
-  belongs_to :owner, class_name: User.name
+  belongs_to :owner, class_name: User.name, dependent: :destroy
 
   validates :name, :subdomain, presence: true
   validates :owner, presence: true

@@ -14,8 +14,17 @@ export const CREATE_ACCOUNT_FAILURE = 'CREATE_ACCOUNT_FAILURE'
 export const RESET_NEW_ACCOUNT = 'RESET_NEW_ACCOUNT'
 
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
+const token = localStorage.getItem('jwtToken')
 
-export function fetchAccounts (token) {
+function prepareAccountParams (props) {
+  return {
+    name: props.accountName,
+    subdomain: props.accountSubdomain,
+    owner_attributes: { name: props.ownerName, email: props.ownerEmail, password: props.ownerPassword }
+  }
+}
+
+export function fetchAccounts () {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}/accounts`,
@@ -44,7 +53,7 @@ export function fetchAccountsFailure (error) {
   }
 }
 
-export function fetchAccount (id, token) {
+export function fetchAccount (id) {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}/accounts/${id}`,
@@ -76,9 +85,11 @@ export function fetchAccountFailure (error) {
 export function createAccount (props) {
   const request = axios({
     method: 'post',
-    data: props,
+    data: prepareAccountParams(props),
     url: `${ROOT_URL}/accounts`,
-    headers: {}
+    headers: {
+      'Authorization': `JWT ${token}`
+    }
   })
 
   return {

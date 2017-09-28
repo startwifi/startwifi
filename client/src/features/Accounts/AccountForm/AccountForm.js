@@ -4,15 +4,25 @@ import { reduxForm, Field, SubmissionError } from 'redux-form'
 import { Link } from 'react-router'
 import { createAccount, createAccountSuccess, createAccountFailure } from '../actions'
 import Input from '../../../common/Ui/Input'
+import Alert from '../../../common/Ui/Alert'
 
 function validate(values) {
   const errors = {}
 
-  if (!values.name || values.name.trim() === '') {
-    errors.name = 'Enter an account name'
+  if (!values.ownerName || values.ownerName.trim() === '') {
+    errors.ownerName = 'Enter an owner name'
   }
-  if (!values.subdomain || values.subdomain.trim() === '') {
-    errors.subdomain = 'Enter an account subdomain'
+  if (!values.ownerEmail || values.ownerEmail.trim() === '') {
+    errors.ownerEmail = 'Enter an owner email'
+  }
+  if (!values.ownerPassword || values.ownerPassword.trim() === '') {
+    errors.ownerPassword = 'Enter an owner password'
+  }
+  if (!values.accountName || values.accountName.trim() === '') {
+    errors.accountName = 'Enter an account name'
+  }
+  if (!values.accountSubdomain || values.accountSubdomain.trim() === '') {
+    errors.accountSubdomain = 'Enter an account subdomain'
   }
 
   return errors
@@ -44,18 +54,6 @@ class AccountForm extends Component {
     }
   }
 
-  renderError (newAccount) {
-    if (newAccount && newAccount.error && newAccount.error.message) {
-      return (
-        <div className='alert alert-danger'>
-          { newAccount ? newAccount.error.message : '' }
-        </div>
-        )
-    } else {
-      return <span></span>
-    }
-  }
-
   render () {
     const { handleSubmit, submitting, newAccount } = this.props
 
@@ -68,16 +66,34 @@ class AccountForm extends Component {
                 <h5>New account</h5>
               </div>
               <div className='ibox-content'>
-                { this.renderError(newAccount) }
+                <Alert entity={newAccount} />
                 <form className='form-horizontal' onSubmit={handleSubmit(validateAndCreateAccount)}>
                   <Field
-                    name='name'
+                    name='ownerName'
+                    type='text'
+                    label='Owner name'
+                    component={Input}
+                  />
+                  <Field
+                    name='ownerEmail'
+                    type='email'
+                    label='Owner email'
+                    component={Input}
+                  />
+                  <Field
+                    name='ownerPassword'
+                    type='password'
+                    label='Owner password'
+                    component={Input}
+                  />
+                  <Field
+                    name='accountName'
                     type='text'
                     label='Name'
                     component={Input}
                   />
                   <Field
-                    name='subdomain'
+                    name='accountSubdomain'
                     type='text'
                     label='Subdomain'
                     component={Input}
