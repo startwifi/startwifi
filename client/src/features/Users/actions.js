@@ -10,8 +10,8 @@ export const SIGNIN_USER_SUCCESS = 'SIGNIN_USER_SUCCESS'
 export const SIGNIN_USER_FAILURE = 'SIGNIN_USER_FAILURE'
 export const RESET_USER = 'RESET_USER'
 
-const TOKEN_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000' : ''
-const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
+const TOKEN_URL = window.location.href.indexOf('localhost') > 0 ? 'http://localhost:3000' : ''
+const ROOT_URL = window.location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
 
 export function meFromToken (tokenFromStorage) {
   const request = axios({
