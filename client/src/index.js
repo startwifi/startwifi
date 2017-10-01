@@ -1,7 +1,3 @@
-import './../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './../node_modules/font-awesome/css/font-awesome.css'
-import './../public/styles/style.css'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -11,9 +7,11 @@ import configureStore from './store'
 import routes from './routes'
 import jquery from 'jquery'
 
+import './styles/dist/styles/App.css'
+
 window.jQuery = jquery
 
-require('bootstrap')
+require('bootstrap-sass')
 
 export const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)

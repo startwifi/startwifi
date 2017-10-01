@@ -5,7 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.16.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
@@ -25,11 +25,16 @@
     "redux-promise": "^0.5.3"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react-scripts": "1.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o src/styles/dist",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/styles/dist --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "PORT=3002 npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

@@ -13,7 +13,7 @@ export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS'
 export const CREATE_ACCOUNT_FAILURE = 'CREATE_ACCOUNT_FAILURE'
 export const RESET_NEW_ACCOUNT = 'RESET_NEW_ACCOUNT'
 
-const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
+const ROOT_URL = window.location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api/v1' : '/api/v1'
 
 export function fetchAccounts (token) {
   const request = axios({

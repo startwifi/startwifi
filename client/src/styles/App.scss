@@ -1,0 +1,25 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '~font-awesome/fonts/';
+
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'node_modules/font-awesome/scss/font-awesome';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+// Variables, Mixins
+@import 'base/mixins';
+@import 'base/variables';
+
+// INSPINIA Theme Elements
+@import 'base/base';
+@import 'base/typography';
+@import 'base/top_navigation';
+@import 'base/navigation';
+@import 'base/buttons';
+@import 'base/badges_labels';
+@import 'base/elements';
+@import 'base/pages';
+
+// Media query style
+@import 'base/media.scss';
